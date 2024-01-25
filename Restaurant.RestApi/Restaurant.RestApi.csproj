@@ -1,0 +1,45 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <Nullable>enable</Nullable>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <AssemblyName>Ploeh.Samples.Restaurants.RestApi</AssemblyName>
+    <RootNamespace>Ploeh.Samples.Restaurants.RestApi</RootNamespace>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <WarningsAsErrors />
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <WarningsAsErrors />
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="AddGuidColumnToReservations.sql" />
+    <None Remove="AddTenantColumnToReservations.sql" />
+    <None Remove="RestaurantDbSchema.sql" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <AdditionalFiles Include="..\.editorconfig" Link=".editorconfig" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="AddGuidColumnToReservations.sql" />
+    <EmbeddedResource Include="AddTenantColumnToReservations.sql" />
+    <EmbeddedResource Include="RestaurantDbSchema.sql" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="3.1.9" />
+    <PackageReference Include="Microsoft.CodeAnalysis.FxCopAnalyzers" Version="3.3.0">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="System.Data.SqlClient" Version="4.8.2" />
+  </ItemGroup>
+
+</Project>
